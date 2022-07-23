@@ -6,10 +6,7 @@ public class FruitMovement : MonoBehaviour
 {
     private Rigidbody rb;
 
-    private GameObject currentFruit;
 
-    [SerializeField]
-    private List<GameObject> fruits;
 
     // Temp
     public float speed = 3.0f;
@@ -28,8 +25,7 @@ public class FruitMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentFruit = fruits[0];
-        rb = currentFruit.GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
 
         if (type == Type.Player)
         {

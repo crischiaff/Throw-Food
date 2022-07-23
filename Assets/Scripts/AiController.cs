@@ -9,33 +9,43 @@ public class AiController : InputController
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.D))
-        {
+        // Get direction from A to B
+        Vector3 posA = transform.position;
+        Vector3 posB = GameObject.FindGameObjectWithTag("Player").transform.position;
+        //Destination - Origin
+        Vector3 dir = (posB - posA).normalized;
+        zAxisMov = dir.z > 0 ? 1 : -1;
+        xAxisMov = dir.x > 0 ? -1 : 1;
 
-            zAxisMov = 1;
-        }
-        else if (Input.GetKey(KeyCode.A))
-        {
-            zAxisMov = -1;
-        }
-        else
-        {
-            zAxisMov = 0;
-        }
+        Debug.Log(dir);
+        
+        //if (Input.GetKey(KeyCode.D))
+        //{
 
-        if (Input.GetKey(KeyCode.W))
-        {
+        //    zAxisMov = 1;
+        //}
+        //else if (Input.GetKey(KeyCode.A))
+        //{
+        //    zAxisMov = -1;
+        //}
+        //else
+        //{
+        //    zAxisMov = 0;
+        //}
 
-            xAxisMov = 1;
-        }
-        else if (Input.GetKey(KeyCode.S))
-        {
-            xAxisMov = -1;
-        }
-        else
-        {
-            xAxisMov = 0;
-        }
+        //if (Input.GetKey(KeyCode.W))
+        //{
+
+        //    xAxisMov = 1;
+        //}
+        //else if (Input.GetKey(KeyCode.S))
+        //{
+        //    xAxisMov = -1;
+        //}
+        //else
+        //{
+        //    xAxisMov = 0;
+        //}
     }
 
     public override float xAxisMovement()
