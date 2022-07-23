@@ -8,9 +8,9 @@ public class FruitMovement : MonoBehaviour
 
 
 
-    // Temp
-    public float speed = 3.0f;
-    public float breakingSpeed = 1.0f;
+    // ENCAPSULATION: Preventing other object from changing speed 
+    [SerializeField]
+    private float speed = 3.0f;
 
     private InputController inputController;
 
@@ -39,6 +39,7 @@ public class FruitMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        // POLYMORPHISM: The implementation depends on the child class
         if (inputController.zAxisMovement() > 0)
         {
 
